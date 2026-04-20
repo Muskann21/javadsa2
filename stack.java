@@ -8,6 +8,13 @@ public class stack {
         sc.push("k");
         sc.push("a");
         sc.push("n");
-        System.out.print(sc);
+        Stack<String> obj=new Stack<>();
+        while(!sc.isEmpty()){
+            obj.push(sc.pop());
+        }
+        while(!obj.isEmpty()){
+            System.out.print(obj.pop());
+        }
+       
     }
 }
