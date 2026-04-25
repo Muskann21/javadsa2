@@ -18,18 +18,29 @@ class circular{
          queue[rear]=element;
          System.out.println(element+"inserted");
             }
-    void dequeue(int element){
-        if((rear+1)%size==front){
-            System.out.println("Element not found");
-        }
+    void dequeue(){
         if(front==-1){
-            front=0;
+            System.out.println("Queue is empty");
+            return;
         }
-        if(queue[((rear+1)%size)]==element){
-            
+        front=(front+1)%size;
+        System.out.println("Dequeued");
         }
+    void display(){
+        if(front==-1){
+            System.out.println("Queue is empty");
+            return;
+        }
+        int i=front;
+        do{
+            System.out.print(queue[i]+" ");
+            i=(i+1)%(size);
+        }
+        while (i!=(rear+1)%size);
+        System.out.println();
     }
     }
+    
     public class circularqueue{
            public static void main(String[] args) {
                circular cq=new circular(4);
@@ -37,5 +48,8 @@ class circular{
                cq.enqueue(20);
                cq.enqueue(30);
                cq.enqueue(40);
+               cq.display();
+               cq.dequeue();
+               cq.display();
            }
     }
