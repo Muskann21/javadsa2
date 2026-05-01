@@ -13,21 +13,44 @@ class Link{
         newNode.next=head;
         head=newNode;
     }
-    void insertmid(int data){
+    void insertatplace(int position,int data){
         Node newNode=new Node(data);
+        if(position==0){
+            newNode.next=head;
+            head=newNode;
+            return;
+        }
         Node temp=head;
-        int x=0;
-        while(temp!=null){
-            x+=1;
+        for(int i=0;i<position-1;i++){
+            if(temp==null){
+                return;
+            }
             temp=temp.next;
         }
-        Node temp2=head;
-        int y=0;
-        while(y!=x/2){
-            temp2=temp2.next;
-            y+=1;
+        if(temp==null){
+            return;
         }
-        newNode.next=temp2.next;
+        newNode.next=temp.next;
+        temp.next=newNode;
+    }
+     void deleteplace(int position){
+        if (position==0){
+            Node temp=head;
+            head=temp.next;
+            temp=null;
+            return;
+        }
+        Node temp=head;
+        for(int i=0;i<position-1;i++){
+            if(temp==null){
+                return;
+            }
+            temp=temp.next;
+        }
+        if(temp==null){
+            return;
+        }
+        temp.next=temp.next.next;
     }
     void deleteb(){
         if(head.next==null){
@@ -50,6 +73,7 @@ class Link{
        }
        temp.next=null;
     }
+   
     void display(){
         Node temp=head;
         while(temp!=null){
@@ -67,7 +91,9 @@ public class linkedlistbeg {
         list.insert(46);
         list.insert(56);
         list.insert(321);
-        list.deleteb();
+        list.insertatplace(3, 21);
+        list.deleteplace(2);
+        // list.deleteb();
         list.display();
     }
 }
