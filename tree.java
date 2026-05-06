@@ -7,12 +7,11 @@ class Tree{
     }
 }
 public class tree {
-    public static void sum(Tree root){
-        int sum=root.data;
+    public static int sum(Tree root){
         if (root==null){
-            return;
+            return 0;
         }
-        sum=sum+root.left.data ;
+        return root.data+sum(root.left)+sum(root.right);
 
 
     }
@@ -22,5 +21,6 @@ public class tree {
         root.right=new Tree(4);
         root.left.left=new Tree(5);
         root.left.right=new Tree(6);
+        System.out.print("Sum of nodes:"+sum(root));
     }
 }
