@@ -11,7 +11,7 @@ public class bubblesort {
                 arr[j+1]=temp;
                 isswapped=true;
             }}
-        if(!isswapped){
+        if(!isswapped){//helps when array becomes sorted before all the n-1 passes get completed
             break;
         }
         }
